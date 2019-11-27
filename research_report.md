@@ -11,5 +11,10 @@
 ### Why are we doing this project
 
 ## Game description
+The L game is a two-player game played on a 4x4 board of squares. Each player has a 3x2 L-shaped piece, and there are two 1x1 neutral pieces.
+
 ## Game rules
+Each player must move their L-shaped piece by flipping it, rotating it, or translating it, to a new legal position (It mus be within the bounds of the board, and must not be overlapping another game piece.)
+They may then optionally move one neutral 1x1 piece to an unoccupied position. The game is won when your opponent can no longer make a legal move.
+
 ## Playing strategies
