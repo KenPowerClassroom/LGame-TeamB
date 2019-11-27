@@ -2,10 +2,10 @@
 ## Introduction
 
 ### Who are we
-- team-member-name (github-username)
-- team-member-name (github-username)
-- team-member-name (github-username)
-- team-member-name (github-username)
+- Ben Millar (ben-millar)
+- Michael Rainsford Ryan (MichaelRRyan)
+- Aaron O'Neill (Aaron0Neill)
+- Szymon Piskorz (SzymonPiskorz)
 
 ### What is the purpose of this document
 ### Why are we doing this project
