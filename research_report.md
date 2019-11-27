@@ -4,7 +4,7 @@
 ### Who are we
 - Ben Millar (ben-millar)
 - Michael Rainsford Ryan (MichaelRRyan)
-- Aaron O'Neill (Aaron0Neill)
+- Aaron O'Neill [Aaron0Neill](https://github.com/Aaron0Neill)
 - Szymon Piskorz (SzymonPiskorz)
 
 ### What is the purpose of this document
