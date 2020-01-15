@@ -16,6 +16,7 @@
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include "Board.h"
 
 class Render
 {
@@ -37,5 +38,9 @@ private:
 	/// <summary>
 	/// SFML Render window for displaying game
 	/// </summary>
-	sf::RenderWindow m_window;
+	sf::RenderWindow m_window; 
+	std::array<sf::Color, 4> m_tileColours; // all the possible colours
+	sf::Vector2f m_tileSize; // the size of each tile
+	int m_tileOffset; // amount of pixels between the board and the edge of the screen 
+	Board m_mockBoard; // mock board to render game
 };
