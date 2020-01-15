@@ -6,7 +6,7 @@
 /// @date: 15/1/20
 /// </summary>
 
-#include <SFML/Graphics.hpp>
+
 #include <array>
 
 class Board
