@@ -71,7 +71,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>C:\Users\C00241596\Desktop\LGame-TeamB\LGame\Debug</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\LGame\Debug</AdditionalLibraryDirectories>
       <AdditionalDependencies>Board.obj;LPiece.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
