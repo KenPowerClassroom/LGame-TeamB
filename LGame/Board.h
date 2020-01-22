@@ -12,10 +12,9 @@
 class Board
 {
 public:
-	Board();
+	Board(std::array<std::array<int, 4>, 4> mock);
 	~Board();
 
 	std::array<std::array<int, 4>, 4> m_board;
 };
-
 #endif
