@@ -15,33 +15,26 @@
 #endif 
 
 #include <iostream>
-#include <SFML/Graphics.hpp>
 #include "Board.h"
+#include "TileType.h"
 
 class Render
 {
 public:
-
 	/// <summary>
 	/// Default Constructor
 	/// </summary>
-	Render();
+	Render() = default;
 
 	/// <summary>
 	/// Default Destructor
 	/// </summary>
-	~Render() = default;
+	virtual ~Render() = default;
 
-	void draw(Board t_board);
+	virtual void draw(std::array<std::array<TileType, 4>, 4> const & t_boardData) = 0;
 
-private:
-	/// <summary>
-	/// SFML Render window for displaying game
-	/// </summary>
-	sf::RenderWindow m_window; 
-	sf::RectangleShape m_square; // represents all the tiles
-	std::array<sf::Color, 4> m_tileColours; // all the possible colours
-	sf::Vector2f m_tileSize; // the size of each tile
-	int m_tileOffset; // amount of pixels between the board and the edge of the screen 
 
+protected:
+
+	virtual void drawPiece(TileType , unsigned int , unsigned int ) = 0;
 };
