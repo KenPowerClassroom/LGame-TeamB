@@ -25,6 +25,8 @@ public:
 	int getColOffset();
 	bool isHidden();
 
+	std::array<std::array<int, 4>, 4> getBoardRelativeData();
+
 private:
 	std::array<std::array<int, 3>, 3> m_shape;
 	int m_rowOffset;
