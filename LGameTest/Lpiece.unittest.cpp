@@ -3,12 +3,12 @@
 
 TEST(LPiece, RedLpieceConstructer)
 {
-	LPiece lPiece(2, 0, 1);
+	LPiece lPiece(TileType::PlayerOne, 0, 1);
 
-	ASSERT_EQ(2, lPiece.getShape()[0][0]);
-	ASSERT_EQ(2, lPiece.getShape()[0][1]);
-	ASSERT_EQ(2, lPiece.getShape()[1][1]);
-	ASSERT_EQ(2, lPiece.getShape()[2][1]);
+	ASSERT_EQ(TileType::PlayerOne, lPiece.getShape()[0][0]);
+	ASSERT_EQ(TileType::PlayerOne, lPiece.getShape()[0][1]);
+	ASSERT_EQ(TileType::Empty, lPiece.getShape()[1][0]);
+	ASSERT_EQ(TileType::Empty, lPiece.getShape()[2][0]);
 
 	ASSERT_EQ(true, lPiece.isHidden());
 
@@ -18,7 +18,7 @@ TEST(LPiece, RedLpieceConstructer)
 
 TEST(LPiece, LpieceShowPiece)
 {
-	LPiece lPiece(2, 0, 1);
+	LPiece lPiece(TileType::PlayerOne, 0, 1);
 
 	lPiece.setHidden(false);
 
@@ -27,8 +27,8 @@ TEST(LPiece, LpieceShowPiece)
 
 TEST(LPiece, LpieceBoardDataTest)
 {
-	LPiece lPiece(2, 0, 1);
+	LPiece lPiece(TileType::PlayerOne, 0, 1);
 
-	ASSERT_EQ(2, lPiece.getBoardRelativeData()[0][1]);
-	ASSERT_EQ(0, lPiece.getBoardRelativeData()[1][1]);
+	ASSERT_EQ(TileType::PlayerOne, lPiece.getBoardRelativeData()[0][1]);
+	ASSERT_EQ(TileType::Empty, lPiece.getBoardRelativeData()[1][1]);
 }

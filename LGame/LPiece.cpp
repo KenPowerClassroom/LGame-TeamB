@@ -1,11 +1,11 @@
 #include "LPiece.h"
 
-LPiece::LPiece(int t_pieceColour, int t_rowOffset, int t_colOffset) :
+LPiece::LPiece(TileType t_tileType, int t_rowOffset, int t_colOffset) :
 	m_shape
 	{ {
-		{ t_pieceColour, t_pieceColour, 0 },
-		{ 0,			 t_pieceColour, 0 },
-		{ 0,			 t_pieceColour, 0 }
+		{ t_tileType,		t_tileType, TileType::Empty },
+		{ TileType::Empty,	t_tileType, TileType::Empty },
+		{ TileType::Empty,	t_tileType, TileType::Empty }
 	} },
 	m_rowOffset{ t_rowOffset },
 	m_colOffset{ t_colOffset },
@@ -18,7 +18,7 @@ void LPiece::setHidden(bool t_state)
 	m_hidden = t_state;
 }
 
-std::array<std::array<int, 3>, 3> LPiece::getShape()
+std::array<std::array<TileType, 3>, 3> LPiece::getShape()
 {
 	return m_shape;
 }
@@ -38,16 +38,16 @@ bool LPiece::isHidden()
 	return m_hidden;
 }
 
-std::array<std::array<int, 4>, 4> LPiece::getBoardRelativeData()
+std::array<std::array<TileType, 4>, 4> LPiece::getBoardRelativeData()
 {
-	std::array<std::array<int, 4>, 4> boardData;
+	std::array<std::array<TileType, 4>, 4> boardData;
 
 	// Loop through the shape array
 	for (int row = 0; row < 4; row++)
 	{
 		for (int col = 0; col < 4; col++)
 		{
-			boardData[row][col] = 0;
+			boardData[row][col] = TileType::Empty;
 		}
 	}
 
@@ -57,7 +57,7 @@ std::array<std::array<int, 4>, 4> LPiece::getBoardRelativeData()
 		for (int col = 0; col < 3; col++)
 		{
 			// Check if the value is not blank
-			if (m_shape[row][col] != 0)
+			if (m_shape[row][col] != TileType::Empty)
 			{
 				boardData[row + m_rowOffset][col + m_colOffset] = m_shape[row][col];
 			}
