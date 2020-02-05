@@ -16,6 +16,8 @@ SFMLRenderer::SFMLRenderer() :
 	m_square.setOutlineThickness(1.0f);
 }
 
+/////////////////////////////////////////////////////////////////////////////////////
+
 void SFMLRenderer::draw(std::array<std::array<TileType, 4>, 4> const& t_boardData)
 {
 	m_window.clear(sf::Color::White);

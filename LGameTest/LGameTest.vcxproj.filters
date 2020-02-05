@@ -1,3 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="Board.unittest.cpp">
+      <Filter>Board</Filter>
+    </ClCompile>
+    <ClCompile Include="Lpiece.unittest.cpp">
+      <Filter>L Piece</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.unittest.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Board">
+      <UniqueIdentifier>{27f385c6-31fc-4e61-9526-8e13fc5bd627}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="L Piece">
+      <UniqueIdentifier>{ea72c4d7-e298-4459-af92-20b2eed47c2e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
 </Project>

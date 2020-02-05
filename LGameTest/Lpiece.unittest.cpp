@@ -24,3 +24,32 @@ TEST(LPiece, LpieceShowPiece)
 
 	ASSERT_EQ(false, lPiece.isHidden());
 }
+
+TEST(LPiece, LpieceRotate)
+{
+	LPiece lPiece(1, 0, 0);
+
+	std::array<std::array<int, 3>, 3> originalPos
+	{
+		{
+			{1,1,0},
+			{0,1,0},
+			{0,1,0}
+		}
+	};
+
+	std::array<std::array<int, 3>, 3> rotatedPos
+	{
+		{
+			{0,0,1},
+			{1,1,1},
+			{0,0,0}
+		}
+	};
+
+	ASSERT_EQ(originalPos, lPiece.getShape());
+
+	lPiece.rotate();
+
+	ASSERT_EQ(rotatedPos, lPiece.getShape());
+}
