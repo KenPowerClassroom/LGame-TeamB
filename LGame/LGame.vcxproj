@@ -167,11 +167,14 @@
     <ClCompile Include="LPiece.cpp" />
     <ClCompile Include="Render.cpp" />
     <ClCompile Include="LGame.cpp" />
+    <ClCompile Include="SFMLRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board.h" />
     <ClInclude Include="LPiece.h" />
     <ClInclude Include="Render.h" />
+    <ClInclude Include="SFMLRenderer.h" />
+    <ClInclude Include="TileType.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
