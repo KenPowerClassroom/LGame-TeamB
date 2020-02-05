@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "..//LGame/LPiece.h"
 
-TEST(LPiece, RedLpieceConstructer)
+TEST(LPiece, RedLpieceConstructor)
 {
 	LPiece lPiece(TileType::PlayerOne, 0, 1);
 
@@ -14,6 +14,19 @@ TEST(LPiece, RedLpieceConstructer)
 
 	ASSERT_EQ(0, lPiece.getRowOffset());
 	ASSERT_EQ(1, lPiece.getColOffset());
+}
+
+TEST(LPiece, BlueLpieceConstructor)
+{
+	LPiece lPiece(TileType::PlayerTwo, 1, 0);
+
+	ASSERT_EQ(TileType::PlayerTwo, lPiece.getShape()[0][0]);
+	ASSERT_EQ(TileType::PlayerTwo, lPiece.getShape()[0][1]);
+	ASSERT_EQ(TileType::Empty, lPiece.getShape()[1][0]);
+	ASSERT_EQ(TileType::Empty, lPiece.getShape()[2][0]);
+
+	ASSERT_EQ(1, lPiece.getRowOffset());
+	ASSERT_EQ(0, lPiece.getColOffset());
 }
 
 TEST(LPiece, LpieceShowPiece)
