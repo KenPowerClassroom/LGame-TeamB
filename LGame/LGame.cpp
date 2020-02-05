@@ -5,7 +5,6 @@
 
 int main()
 {
-	
 	Render* renderer = new SFMLRenderer;
 	std::array<std::array<int, 4>, 4> m_integerBoard =
 	{ {
@@ -28,6 +27,7 @@ int main()
 	Board testBoard(m_board);
 
 	renderer->draw(testBoard.m_board);
+
 	system("pause");
 
 	return 0;
