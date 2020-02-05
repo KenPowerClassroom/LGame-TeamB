@@ -14,6 +14,11 @@ class LPiece
 public:
 	LPiece(TileType t_tileType, int t_rowOffset, int t_colOffset);
 
+	/// <summary>
+	/// @brief Rotates the l-piece clockwise by 90 degrees
+	/// </summary>
+	void rotate();
+
 	void setHidden(bool t_state);
 
 	std::array<std::array<TileType, 3>, 3> getShape();
@@ -22,6 +27,8 @@ public:
 	bool isHidden();
 
 	std::array<std::array<TileType, 4>, 4> getBoardRelativeData();
+
+	void flip();
 
 private:
 	std::array<std::array<TileType, 3>, 3> m_shape;

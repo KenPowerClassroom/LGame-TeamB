@@ -32,3 +32,42 @@ TEST(LPiece, LpieceBoardDataTest)
 	ASSERT_EQ(TileType::PlayerOne, lPiece.getBoardRelativeData()[0][1]);
 	ASSERT_EQ(TileType::Empty, lPiece.getBoardRelativeData()[1][1]);
 }
+TEST(LPiece, FlipTest)
+{
+	LPiece testPiece(TileType::PlayerOne, 0, 0);
+
+	std::array<std::array<TileType, 3>, 3> testArray; // create an array to hold the Lpiece info
+	testPiece.flip(); // call the flip function
+	testArray = testPiece.getShape(); // update the test array
+	ASSERT_EQ(TileType::PlayerOne, testArray[0][2]); // make sure the values match a flipped piece
+	ASSERT_EQ(TileType::Empty, testArray[2][0]);
+}
+
+TEST(LPiece, LpieceRotate)
+{
+	LPiece lPiece(TileType::PlayerOne, 0, 0);
+
+	std::array<std::array<TileType, 3>, 3> originalPos
+	{
+		{
+			{TileType::PlayerOne,	TileType::PlayerOne,	TileType::Empty},
+			{TileType::Empty,		TileType::PlayerOne,	TileType::Empty},
+			{TileType::Empty,		TileType::PlayerOne,	TileType::Empty}
+		}
+	};
+
+	std::array<std::array<TileType, 3>, 3> rotatedPos
+	{
+		{
+			{TileType::Empty,		TileType::Empty,		TileType::PlayerOne},
+			{TileType::PlayerOne,	TileType::PlayerOne,	TileType::PlayerOne},
+			{TileType::Empty,		TileType::Empty,		TileType::Empty}
+		}
+	};
+
+	ASSERT_EQ(originalPos, lPiece.getShape());
+
+	lPiece.rotate();
+
+	ASSERT_EQ(rotatedPos, lPiece.getShape());
+}
