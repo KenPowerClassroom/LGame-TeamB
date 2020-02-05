@@ -20,6 +20,8 @@ public:
 	int getColOffset();
 	bool isHidden();
 
+	void flip();
+
 private:
 	std::array<std::array<int, 3>, 3> m_shape;
 	int m_rowOffset;

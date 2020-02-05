@@ -24,3 +24,14 @@ TEST(LPiece, LpieceShowPiece)
 
 	ASSERT_EQ(false, lPiece.isHidden());
 }
+
+TEST(LPiece, FlipTest) 
+{
+	LPiece testPiece(2, 0, 0);
+
+	std::array<std::array<int, 3>, 3> testArray; // create an array to hold the Lpiece info
+	testPiece.flip(); // call the flip function
+	testArray = testPiece.getShape(); // update the test array
+	ASSERT_EQ(2, testArray[0][2]); // make sure the values match a flipped piece
+	ASSERT_EQ(0, testArray[2][0]);
+}

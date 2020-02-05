@@ -37,3 +37,15 @@ bool LPiece::isHidden()
 {
 	return m_hidden;
 }
+
+void LPiece::flip()
+{
+	std::array<std::array<int, 3>, 3> tempPiece;
+	tempPiece = m_shape;
+
+	for (int row = 0; row < 3; row++)
+	{
+		m_shape[row][0] = tempPiece[row][2];
+		m_shape[row][2] = tempPiece[row][0];
+	}
+}
