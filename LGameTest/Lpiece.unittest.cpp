@@ -24,3 +24,11 @@ TEST(LPiece, LpieceShowPiece)
 
 	ASSERT_EQ(false, lPiece.isHidden());
 }
+
+TEST(LPiece, LpieceBoardDataTest)
+{
+	LPiece lPiece(2, 0, 1);
+
+	ASSERT_EQ(2, lPiece.getBoardRelativeData()[0][1]);
+	ASSERT_EQ(0, lPiece.getBoardRelativeData()[1][1]);
+}
