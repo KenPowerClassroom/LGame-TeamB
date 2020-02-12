@@ -1,5 +1,10 @@
 #pragma once
 
+/// <summary>
+/// @Author Michael Rainsford Ryan
+/// @Date 12/02/2020
+/// </summary>
+
 #include <SFML/Graphics.hpp>
 #include "Input.h"
 

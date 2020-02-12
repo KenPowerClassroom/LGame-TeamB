@@ -173,6 +173,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board.h" />
+    <ClInclude Include="GameState.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="LPiece.h" />
     <ClInclude Include="Render.h" />

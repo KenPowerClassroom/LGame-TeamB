@@ -4,9 +4,12 @@
 #include "Board.h"
 #include "LPiece.h"
 #include "SFMLKeyboardInput.h"
+#include "GameState.h"
 
 int main()
 {
+	GameState gameState{ GameState::View };
+
 	sf::RenderWindow m_window{ sf::VideoMode(1100, 620, 32U), "L Game", sf::Style::Default };
 	SFMLRenderer renderer;
 
@@ -35,27 +38,31 @@ int main()
 	}
 
 	Board testBoard(m_board);
+	LPiece lPiece(TileType::PlayerOne, 0, 1);
 
 	while (m_window.isOpen())
 	{
 		input.update();
-		renderer.draw(testBoard.m_board); 
+
+		if (GameState::View == gameState)
+		{
+			renderer.draw(testBoard.m_board);
+
+			if (input.m_continue)
+			{
+				gameState = GameState::MoveLPiece;
+			}
+		}
+		else
+		{
+			renderer.draw(lPiece.getBoardRelativeData());
+
+			if (input.m_continue)
+			{
+				gameState = GameState::View;
+			}
+		}
 	}
-
-	system("pause");
-
-	LPiece lPiece(TileType::PlayerOne, 0, 1);
-
-	renderer.draw(lPiece.getBoardRelativeData());
-
-	system("pause");
-
-	LPiece lPieceTwo(TileType::PlayerTwo, 1, 0);
-
-	lPieceTwo.rotate();
-	lPieceTwo.rotate();
-
-	renderer.draw(lPieceTwo.getBoardRelativeData());
 
 	system("pause");
 
