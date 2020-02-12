@@ -32,13 +32,46 @@ int main()
 	system("pause");
 
 	LPiece lPiece(TileType::PlayerOne, 0, 1);
-
+	lPiece.rotate();
+	//lPiece.flip();
+	lPiece.moveRight();
+	lPiece.moveRight();
+	lPiece.moveRight();
+	lPiece.moveRight();
+	lPiece.moveRight();
+	lPiece.moveRight();
+	renderer->draw(lPiece.getBoardRelativeData());
+	system("pause");
+	//lPiece.rotate();
+	lPiece.moveLeft();
+	lPiece.moveLeft();
+	lPiece.moveLeft();
+	lPiece.moveLeft();
+	lPiece.moveLeft();
+	lPiece.moveLeft();
+	renderer->draw(lPiece.getBoardRelativeData());
+	system("pause");
+	//lPiece.rotate();
+	lPiece.moveUp();
+	lPiece.moveUp();
+	lPiece.moveUp();
+	lPiece.moveUp();
+	lPiece.moveUp();
+	lPiece.moveUp();
+	renderer->draw(lPiece.getBoardRelativeData());
+	system("pause");
+	//lPiece.rotate();
+	lPiece.moveDown();
+	lPiece.moveDown();
+	lPiece.moveDown();
+	lPiece.moveDown();
+	lPiece.moveDown();
+	lPiece.moveDown();
 	renderer->draw(lPiece.getBoardRelativeData());
 
 	system("pause");
 
 	LPiece lPieceTwo(TileType::PlayerTwo, 1, 0);
-
 	lPieceTwo.rotate();
 	lPieceTwo.rotate();
 
