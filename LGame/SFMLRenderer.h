@@ -16,6 +16,8 @@ public:
 	/// </summary>
 	~SFMLRenderer() override = default;
 
+	void setWindowRef(sf::RenderWindow& t_windowRef);
+
 	virtual void draw(std::array<std::array<TileType, 4>, 4> const& t_boardData) override;
 
 private:
@@ -33,7 +35,7 @@ private:
 	/// <summary>
 	/// SFML Render window for displaying game
 	/// </summary>
-	sf::RenderWindow m_window;
+	sf::RenderWindow * m_window;
 	
 	/// <summary>
 	/// the size of each tile
