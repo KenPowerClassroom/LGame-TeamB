@@ -1,14 +1,14 @@
 #include "pch.h"
 #include "..//LGame/LPiece.h"
 
-TEST(LPiece, RedLpieceConstructer)
+TEST(LPiece, RedLpieceConstructor)
 {
-	LPiece lPiece(2, 0, 1);
+	LPiece lPiece(TileType::PlayerOne, 0, 1);
 
-	ASSERT_EQ(2, lPiece.getShape()[0][0]);
-	ASSERT_EQ(2, lPiece.getShape()[0][1]);
-	ASSERT_EQ(2, lPiece.getShape()[1][1]);
-	ASSERT_EQ(2, lPiece.getShape()[2][1]);
+	ASSERT_EQ(TileType::PlayerOne, lPiece.getShape()[0][0]);
+	ASSERT_EQ(TileType::PlayerOne, lPiece.getShape()[0][1]);
+	ASSERT_EQ(TileType::Empty, lPiece.getShape()[1][0]);
+	ASSERT_EQ(TileType::Empty, lPiece.getShape()[2][0]);
 
 	ASSERT_EQ(true, lPiece.isHidden());
 
@@ -16,45 +16,58 @@ TEST(LPiece, RedLpieceConstructer)
 	ASSERT_EQ(1, lPiece.getColOffset());
 }
 
+TEST(LPiece, BlueLpieceConstructor)
+{
+	LPiece lPiece(TileType::PlayerTwo, 1, 0);
+
+	ASSERT_EQ(TileType::PlayerTwo, lPiece.getShape()[0][0]);
+	ASSERT_EQ(TileType::PlayerTwo, lPiece.getShape()[0][1]);
+	ASSERT_EQ(TileType::Empty, lPiece.getShape()[1][0]);
+	ASSERT_EQ(TileType::Empty, lPiece.getShape()[2][0]);
+
+	ASSERT_EQ(1, lPiece.getRowOffset());
+	ASSERT_EQ(0, lPiece.getColOffset());
+}
+
 TEST(LPiece, LpieceShowPiece)
 {
-	LPiece lPiece(2, 0, 1);
+	LPiece testPiece(static_cast<TileType>(2), 0, 0);
+
+	std::array<std::array<TileType, 3>, 3> testArray; // create an array to hold the Lpiece info
+	testPiece.flip(); // call the flip function
+	testArray = testPiece.getShape(); // update the test array
+
+	LPiece lPiece(TileType::PlayerOne, 0, 1);
 
 	lPiece.setHidden(false);
 
 	ASSERT_EQ(false, lPiece.isHidden());
-}
-
-TEST(LPiece, FlipTest)
-{
-	LPiece testPiece(2, 0, 0);
-
-	std::array<std::array<int, 3>, 3> testArray; // create an array to hold the Lpiece info
-	testPiece.flip(); // call the flip function
-	testArray = testPiece.getShape(); // update the test array
-	ASSERT_EQ(2, testArray[0][2]); // make sure the values match a flipped piece
-	ASSERT_EQ(0, testArray[2][0]);
+	ASSERT_EQ(static_cast<TileType>(2), testArray[0][2]); // make sure the values match a flipped piece
+	ASSERT_EQ(static_cast<TileType>(0), testArray[2][0]);
 }
 
 TEST(LPiece, FlipTest_2)
 {
 	LPiece lPiece(TileType::PlayerOne, 0, 0);
+	lPiece.rotate();
+	lPiece.rotate();
+	lPiece.rotate();
 
 	std::array<std::array<TileType, 3>, 3> originalPos
 	{
 		{
-			{TileType::PlayerOne,	TileType::Empty,	TileType::Empty},
+			{TileType::Empty,	TileType::Empty,	TileType::Empty},
 			{TileType::PlayerOne,	TileType::PlayerOne,TileType::PlayerOne},
-			{TileType::Empty,		TileType::Empty,	TileType::Empty}
+			{TileType::PlayerOne,		TileType::Empty,	TileType::Empty}
 		}
 	};
 
 	std::array<std::array<TileType, 3>, 3> flippedPos
 	{
 		{
-			{TileType::Empty,		TileType::Empty,		TileType::PlayerOne},
+			{TileType::Empty,		TileType::Empty,		TileType::Empty},
 			{TileType::PlayerOne,	TileType::PlayerOne,	TileType::PlayerOne},
-			{TileType::Empty,		TileType::Empty,		TileType::Empty}
+			{TileType::Empty,		TileType::Empty,		TileType::PlayerOne}
 		}
 	};
 
@@ -67,34 +80,43 @@ TEST(LPiece, FlipTest_2)
 
 TEST(LPiece, LpieceBoardDataTest)
 {
-	LPiece lPiece(2, 0, 1);
+	LPiece lPiece(TileType::PlayerOne, 0, 1);
 
-	ASSERT_EQ(2, lPiece.getBoardRelativeData()[0][1]);
-	ASSERT_EQ(0, lPiece.getBoardRelativeData()[1][1]);
+	ASSERT_EQ(TileType::PlayerOne, lPiece.getBoardRelativeData()[0][1]);
+	ASSERT_EQ(TileType::Empty, lPiece.getBoardRelativeData()[1][1]);
 }
 
 
+TEST(LPiece, FlipTest)
+{
+	LPiece testPiece(TileType::PlayerOne, 0, 0);
 
+	std::array<std::array<TileType, 3>, 3> testArray; // create an array to hold the Lpiece info
+	testPiece.flip(); // call the flip function
+	testArray = testPiece.getShape(); // update the test array
+	ASSERT_EQ(TileType::PlayerOne, testArray[0][2]); // make sure the values match a flipped piece
+	ASSERT_EQ(TileType::Empty, testArray[2][0]);
+}
 
 TEST(LPiece, LpieceRotate)
 {
-	LPiece lPiece(1, 0, 0);
+	LPiece lPiece(TileType::PlayerOne, 0, 0);
 
-	std::array<std::array<int, 3>, 3> originalPos
+	std::array<std::array<TileType, 3>, 3> originalPos
 	{
 		{
-			{1,1,0},
-			{0,1,0},
-			{0,1,0}
+			{TileType::PlayerOne,	TileType::PlayerOne,	TileType::Empty},
+			{TileType::Empty,		TileType::PlayerOne,	TileType::Empty},
+			{TileType::Empty,		TileType::PlayerOne,	TileType::Empty}
 		}
 	};
 
-	std::array<std::array<int, 3>, 3> rotatedPos
+	std::array<std::array<TileType, 3>, 3> rotatedPos
 	{
 		{
-			{0,0,1},
-			{1,1,1},
-			{0,0,0}
+			{TileType::Empty,		TileType::Empty,		TileType::PlayerOne},
+			{TileType::PlayerOne,	TileType::PlayerOne,	TileType::PlayerOne},
+			{TileType::Empty,		TileType::Empty,		TileType::Empty}
 		}
 	};
 

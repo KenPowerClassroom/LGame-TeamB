@@ -2,6 +2,7 @@
 
 #include "SFMLRenderer.h"
 #include "Board.h"
+#include "LPiece.h"
 
 int main()
 {
@@ -27,6 +28,21 @@ int main()
 	Board testBoard(m_board);
 
 	renderer->draw(testBoard.m_board);
+
+	system("pause");
+
+	LPiece lPiece(TileType::PlayerOne, 0, 1);
+
+	renderer->draw(lPiece.getBoardRelativeData());
+
+	system("pause");
+
+	LPiece lPieceTwo(TileType::PlayerTwo, 1, 0);
+
+	lPieceTwo.rotate();
+	lPieceTwo.rotate();
+
+	renderer->draw(lPieceTwo.getBoardRelativeData());
 
 	system("pause");
 
