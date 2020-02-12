@@ -36,8 +36,34 @@ TEST(LPiece, FlipTest)
 	ASSERT_EQ(0, testArray[2][0]);
 }
 
+TEST(LPiece, FlipTest_2)
+{
+	LPiece lPiece(TileType::PlayerOne, 0, 0);
 
+	std::array<std::array<TileType, 3>, 3> originalPos
+	{
+		{
+			{TileType::PlayerOne,	TileType::Empty,	TileType::Empty},
+			{TileType::PlayerOne,	TileType::PlayerOne,TileType::PlayerOne},
+			{TileType::Empty,		TileType::Empty,	TileType::Empty}
+		}
+	};
 
+	std::array<std::array<TileType, 3>, 3> flippedPos
+	{
+		{
+			{TileType::Empty,		TileType::Empty,		TileType::PlayerOne},
+			{TileType::PlayerOne,	TileType::PlayerOne,	TileType::PlayerOne},
+			{TileType::Empty,		TileType::Empty,		TileType::Empty}
+		}
+	};
+
+	ASSERT_EQ(originalPos, lPiece.getShape());
+
+	lPiece.flip();
+
+	ASSERT_EQ(flippedPos, lPiece.getShape());
+}
 
 TEST(LPiece, LpieceBoardDataTest)
 {
