@@ -3,10 +3,22 @@
 #include "SFMLRenderer.h"
 #include "Board.h"
 #include "LPiece.h"
+#include "SFMLKeyboardInput.h"
+#include "GameState.h"
 
 int main()
 {
-	Render* renderer = new SFMLRenderer;
+	GameState gameState{ GameState::View };
+
+	sf::RenderWindow m_window{ sf::VideoMode(1100, 620, 32U), "L Game", sf::Style::Default };
+	SFMLRenderer renderer;
+
+	renderer.setWindowRef(m_window);
+
+	SFMLKeyboardInput input;
+
+	input.setWindowRef(m_window);
+
 	std::array<std::array<int, 4>, 4> m_integerBoard =
 	{ {
 		{1,2,2,0},
@@ -26,31 +38,31 @@ int main()
 	}
 
 	Board testBoard(m_board);
-
-	renderer->draw(testBoard.m_board);
-
-	system("pause");
-
 	LPiece lPiece(TileType::PlayerOne, 0, 1);
-	lPiece.moveRight();
-	renderer->draw(lPiece.getBoardRelativeData());
-	system("pause");
-	lPiece.moveLeft();
-	renderer->draw(lPiece.getBoardRelativeData());
-	system("pause");
-	lPiece.moveUp();
-	renderer->draw(lPiece.getBoardRelativeData());
-	system("pause");
-	lPiece.moveDown();
-	renderer->draw(lPiece.getBoardRelativeData());
 
-	system("pause");
+	while (m_window.isOpen())
+	{
+		input.update();
 
-	LPiece lPieceTwo(TileType::PlayerTwo, 1, 0);
-	lPieceTwo.rotate();
-	lPieceTwo.rotate();
+		if (GameState::View == gameState)
+		{
+			renderer.draw(testBoard.m_board);
 
-	renderer->draw(lPieceTwo.getBoardRelativeData());
+			if (input.m_continue)
+			{
+				gameState = GameState::MoveLPiece;
+			}
+		}
+		else
+		{
+			renderer.draw(lPiece.getBoardRelativeData());
+
+			if (input.m_continue)
+			{
+				gameState = GameState::View;
+			}
+		}
+	}
 
 	system("pause");
 

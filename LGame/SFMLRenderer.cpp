@@ -1,7 +1,7 @@
 #include "SFMLRenderer.h"
 
 SFMLRenderer::SFMLRenderer() :
-	m_window{ sf::VideoMode(1100, 620, 32U), "L Game", sf::Style::Default },
+	m_window{ nullptr },
 	m_square{TILE_SIZE},
 	TILE_SIZE{ 100.f,100.f },
 	TILE_OFFSET{ 100 },
@@ -17,10 +17,20 @@ SFMLRenderer::SFMLRenderer() :
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
+void SFMLRenderer::setWindowRef(sf::RenderWindow& t_windowRef)
+{
+	m_window = &t_windowRef;
+}
 
+/////////////////////////////////////////////////////////////////////////////////////
 void SFMLRenderer::draw(std::array<std::array<TileType, 4>, 4> const& t_boardData)
 {
-	m_window.clear(sf::Color::White);
+	if (m_window == nullptr)
+	{
+		throw("ERROR: Renderers window reference is nullptr");
+	}
+
+	m_window->clear(sf::Color::White);
 
 	for (int row = 0; row < t_boardData.size(); row++) // Loop through board data rows
 	{
@@ -30,15 +40,14 @@ void SFMLRenderer::draw(std::array<std::array<TileType, 4>, 4> const& t_boardDat
 		}
 	}
 
-	m_window.display();
+	m_window->display();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
-
 void SFMLRenderer::drawPiece(TileType t_type, unsigned int t_row, unsigned int t_col)
 {
 	m_square.setFillColor(TILE_COLOURS[static_cast<int>(t_type)]);
 	m_square.setPosition(TILE_OFFSET + (TILE_SIZE.x * t_col), TILE_OFFSET + (TILE_SIZE.y * t_row));
 
-	m_window.draw(m_square); // draw the tile
+	m_window->draw(m_square); // draw the tile
 }
