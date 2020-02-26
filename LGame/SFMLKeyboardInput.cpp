@@ -25,6 +25,8 @@ void SFMLKeyboardInput::update()
 	m_right = false;
 	m_up = false;
 	m_down = false;
+	m_flip = false;
+	m_rotate = false;
 
 	sf::Event nextEvent;
 
@@ -54,6 +56,12 @@ void SFMLKeyboardInput::update()
 				break;
 			case sf::Keyboard::Down:
 				m_down = true;
+				break;
+			case sf::Keyboard::F:
+				m_flip = true;
+				break;
+			case sf::Keyboard::R:
+				m_rotate = true;
 				break;
 			case sf::Keyboard::Space:
 				m_continue = true;

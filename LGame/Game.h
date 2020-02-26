@@ -11,6 +11,7 @@
 #include "LPiece.h"
 #include "SFMLKeyboardInput.h"
 #include "GameState.h"
+#include "PieceUpdater.h"
 
 class Game
 {
@@ -37,6 +38,8 @@ private:
 
 	Board m_board;
 	LPiece m_lPiece;
+
+	PieceUpdater m_pieceUpdater;
 };
 
 #endif // !GAME_H

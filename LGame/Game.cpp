@@ -39,6 +39,7 @@ void Game::update()
 		else
 		{
 			m_renderer.draw(m_lPiece.getBoardRelativeData());
+			m_pieceUpdater.update(&m_lPiece, &m_input);
 		}
 	}
 }

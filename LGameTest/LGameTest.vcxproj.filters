@@ -1,41 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <ClCompile Include="Board.unittest.cpp" />
+    <ClCompile Include="Input.unittest.cpp" />
+    <ClCompile Include="Lpiece.unittest.cpp" />
+    <ClCompile Include="MoveChecker.unittest.cpp" />
     <ClCompile Include="pch.cpp" />
-    <ClCompile Include="Board.unittest.cpp">
-      <Filter>Board</Filter>
-    </ClCompile>
-    <ClCompile Include="Lpiece.unittest.cpp">
-      <Filter>L Piece</Filter>
-    </ClCompile>
     <ClCompile Include="Renderer.unittest.cpp" />
-		<Filter>Renderer</Filter>
-	</ClCompile>
-    <ClCompile Include="MoveChecker.unittest.cpp">
-      <Filter>MoveChecker</Filter>
-	</ClCompile>
-    <ClCompile Include="Input.unittest.cpp">
-      <Filter>Input</Filter>
-    </ClCompile>
+    <ClCompile Include="PieceUpdater.unittest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Filter Include="Board">
-      <UniqueIdentifier>{27f385c6-31fc-4e61-9526-8e13fc5bd627}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="L Piece">
-      <UniqueIdentifier>{ea72c4d7-e298-4459-af92-20b2eed47c2e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MoveChecker">
-      <UniqueIdentifier>{1027ad51-c64d-4fb0-8706-975242833a15}</UniqueIdentifier>
-	</Filter>
-    <Filter Include="Input">
-      <UniqueIdentifier>{9e049d30-90ce-4a23-b3f5-ef01ed8b77fe}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
 </Project>

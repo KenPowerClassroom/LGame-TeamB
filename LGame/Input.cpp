@@ -10,6 +10,8 @@ Input::Input() :
 	m_left{ false },
 	m_right{ false },
 	m_up{ false },
-	m_down{ false }
+	m_down{ false },
+	m_flip{ false },
+	m_rotate{ false }
 {
 }

@@ -43,9 +43,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MoveChecker.cpp">
-		<Filter>Source Files</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PieceUpdater.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -75,9 +78,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MoveChecker.h">
-		<Filter>Header Files</Filter>
-	</ClInclude>
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PieceUpdater.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
