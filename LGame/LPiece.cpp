@@ -77,6 +77,38 @@ void LPiece::flip()
 	}
 }
 
+void LPiece::moveUp()
+{
+	if (m_rowOffset > 0)
+	{
+		m_rowOffset--;
+	}
+}
+
+void LPiece::moveDown()
+{
+	if (m_rowOffset < 2)
+	{ 
+		m_rowOffset++;
+	}
+}
+
+void LPiece::moveLeft()
+{
+	if (m_colOffset > 0)
+	{
+		m_colOffset--;
+	}
+}
+
+void LPiece::moveRight()
+{
+	if (m_colOffset < 2)
+	{
+		m_colOffset++;
+	}
+}
+
 /////////////////////////////////////////////////////////////////////////////////////
 std::array<std::array<TileType, 4>, 4> LPiece::getBoardRelativeData()
 {
@@ -99,7 +131,11 @@ std::array<std::array<TileType, 4>, 4> LPiece::getBoardRelativeData()
 			// Check if the value is not blank
 			if (m_shape[row][col] != TileType::Empty)
 			{
-				boardData[row + m_rowOffset][col + m_colOffset] = m_shape[row][col];
+				if (row + m_rowOffset >= 0 && row + m_rowOffset < 4
+					&& col + m_colOffset >= 0 && col + m_colOffset < 4)
+				{
+					boardData[row + m_rowOffset][col + m_colOffset] = m_shape[row][col];
+				}
 			}
 		}
 	}

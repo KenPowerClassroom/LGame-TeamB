@@ -164,15 +164,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Board.cpp" />
+    <ClCompile Include="Input.cpp" />
     <ClCompile Include="LPiece.cpp" />
     <ClCompile Include="Render.cpp" />
     <ClCompile Include="LGame.cpp" />
+    <ClCompile Include="SFMLKeyboardInput.cpp" />
     <ClCompile Include="SFMLRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board.h" />
+    <ClInclude Include="GameState.h" />
+    <ClInclude Include="Input.h" />
     <ClInclude Include="LPiece.h" />
     <ClInclude Include="Render.h" />
+    <ClInclude Include="SFMLKeyboardInput.h" />
     <ClInclude Include="SFMLRenderer.h" />
     <ClInclude Include="TileType.h" />
   </ItemGroup>

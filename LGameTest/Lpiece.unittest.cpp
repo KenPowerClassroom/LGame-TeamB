@@ -126,3 +126,63 @@ TEST(LPiece, LpieceRotate)
 
 	ASSERT_EQ(rotatedPos, lPiece.getShape());
 }
+
+TEST(LPiece, LpieceMoveUp)
+{
+	LPiece lPiece(TileType::PlayerOne, 1, 0);
+
+	int originalOffset = 1;
+
+	int movedOffset = 0;
+
+	ASSERT_EQ(originalOffset, lPiece.getRowOffset());
+
+	lPiece.moveUp();
+
+	ASSERT_EQ(movedOffset, lPiece.getRowOffset());
+}
+
+TEST(LPiece, LpieceMoveDown)
+{
+	LPiece lPiece(TileType::PlayerOne, 2, 0);
+
+	int originalOffset = 2;
+
+	int movedOffset = 2;
+
+	ASSERT_EQ(originalOffset, lPiece.getRowOffset());
+
+	lPiece.moveDown();
+
+	ASSERT_EQ(movedOffset, lPiece.getRowOffset());
+}
+
+TEST(LPiece, LpieceMoveRight)
+{
+	LPiece lpiece(TileType::PlayerOne, 0, 1);
+
+	int originalOffset = 1;
+
+	int movedOffset = 2;
+
+	ASSERT_EQ(originalOffset, lpiece.getColOffset());
+
+	lpiece.moveRight();
+
+	ASSERT_EQ(movedOffset, lpiece.getColOffset());
+}
+
+TEST(LPiece, LpieceMoveLeft)
+{
+	LPiece lpiece(TileType::PlayerOne, 0, 1);
+
+	int originalOffset = 1;
+
+	int movedOffset = 0;
+
+	ASSERT_EQ(originalOffset, lpiece.getColOffset());
+
+	lpiece.moveLeft();
+
+	ASSERT_EQ(movedOffset, lpiece.getColOffset());
+}
