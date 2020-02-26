@@ -30,6 +30,12 @@ public:
 
 	void flip();
 
+	void moveUp();
+	void moveDown();
+	void moveLeft();
+	void moveRight();
+
+
 private:
 	std::array<std::array<TileType, 3>, 3> m_shape;
 	int m_rowOffset;
