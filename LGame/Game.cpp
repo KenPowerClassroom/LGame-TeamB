@@ -1,5 +1,6 @@
 #include "Game.h"
 
+/////////////////////////////////////////////////////////////////////////////////////
 Game::Game() :
 	m_gameState{ GameState::View },
 	m_window{ sf::VideoMode(1100, 620, 32U), "L Game", sf::Style::Default },
@@ -16,18 +17,20 @@ Game::Game() :
 	m_input.setWindowRef(m_window);
 }
 
+/////////////////////////////////////////////////////////////////////////////////////
 void Game::start()
 {
 	update();
 }
 
+/////////////////////////////////////////////////////////////////////////////////////
 void Game::update()
 {
 	while (m_window.isOpen())
 	{
 		m_input.update();
 
-		updateGameState(&m_input, m_gameState);
+		updateGameState(&m_input);
 
 		if (GameState::View == m_gameState)
 		{
@@ -40,18 +43,27 @@ void Game::update()
 	}
 }
 
-void Game::updateGameState(Input const* t_input, GameState& t_gameStateRef)
+/////////////////////////////////////////////////////////////////////////////////////
+void Game::updateGameState(Input const* t_input)
 {
 	if (t_input->m_continue)
 	{
-		switch (t_gameStateRef)
+		switch (m_gameState)
 		{
 		case GameState::View:
-			t_gameStateRef = GameState::MoveLPiece;
+			m_gameState = GameState::MoveLPiece;
 			break;
 		case GameState::MoveLPiece:
-			t_gameStateRef = GameState::View;
+			m_gameState = GameState::View;
 			break;
 		}
 	}
 }
+
+/////////////////////////////////////////////////////////////////////////////////////
+const GameState Game::getGameState() const
+{
+	return m_gameState;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////
