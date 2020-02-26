@@ -9,6 +9,9 @@
       <Filter>L Piece</Filter>
     </ClCompile>
     <ClCompile Include="Renderer.unittest.cpp" />
+    <ClCompile Include="MoveChecker.unittest.cpp">
+      <Filter>MoveChecker</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -22,6 +25,9 @@
     </Filter>
     <Filter Include="L Piece">
       <UniqueIdentifier>{ea72c4d7-e298-4459-af92-20b2eed47c2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MoveChecker">
+      <UniqueIdentifier>{1027ad51-c64d-4fb0-8706-975242833a15}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

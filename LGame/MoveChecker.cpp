@@ -3,12 +3,15 @@
 
 std::array<std::array<bool, 4>, 4> MoveChecker::getTruthBoard(Board t_board, TileType t_currentPlayer)
 {
-	for (auto row : t_board.m_board)
+	for (auto& row : t_board.m_board)
 	{
-		for (auto cell : row)
+		for (auto& cell : row)
 		{
 			// If this cell is taken up by the current player, make it empty
-			cell = (cell == t_currentPlayer) ? TileType::Empty : cell;
+			if (cell == t_currentPlayer)
+			{
+				cell = TileType::Empty;
+			}
 		}
 	}
 
