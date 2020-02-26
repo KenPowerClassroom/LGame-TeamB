@@ -9,6 +9,11 @@
       <Filter>L Piece</Filter>
     </ClCompile>
     <ClCompile Include="Renderer.unittest.cpp" />
+		<Filter>Renderer</Filter>
+	</ClCompile>
+    <ClCompile Include="MoveChecker.unittest.cpp">
+      <Filter>MoveChecker</Filter>
+	</ClCompile>
     <ClCompile Include="Input.unittest.cpp">
       <Filter>Input</Filter>
     </ClCompile>
@@ -26,6 +31,9 @@
     <Filter Include="L Piece">
       <UniqueIdentifier>{ea72c4d7-e298-4459-af92-20b2eed47c2e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MoveChecker">
+      <UniqueIdentifier>{1027ad51-c64d-4fb0-8706-975242833a15}</UniqueIdentifier>
+	</Filter>
     <Filter Include="Input">
       <UniqueIdentifier>{9e049d30-90ce-4a23-b3f5-ef01ed8b77fe}</UniqueIdentifier>
     </Filter>

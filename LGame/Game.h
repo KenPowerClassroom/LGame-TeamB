@@ -1,6 +1,11 @@
 #ifndef GAME_H
 #define GAME_H
 
+/// <summary>
+/// @Author Michael Rainsford Ryan
+/// @Date 26/02/2020
+/// </summary>
+
 #include "SFMLRenderer.h"
 #include "Board.h"
 #include "LPiece.h"
@@ -14,6 +19,10 @@ public:
 	Game();
 
 	void start();
+
+	void updateGameState(Input const* t_input);
+
+	const GameState getGameState() const;
 
 private:
 
