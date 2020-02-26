@@ -33,8 +33,14 @@ void Game::update()
 		{
 			m_renderer.draw(m_board.m_board);
 		}
-		else
+		else if (GameState::MoveLPiece == m_gameState)
 		{
+			/// <summary>
+			/// *******************************************************
+			/// CHANGE THE LPIECE DEPENDING ON THE PLAYERS TURN 
+			/// *******************************************************
+			/// </summary>
+			updateLPiece(&m_input, &m_lPiece);
 			m_renderer.draw(m_lPiece.getBoardRelativeData());
 		}
 	}
@@ -52,6 +58,24 @@ void Game::updateGameState(Input const* t_input, GameState& t_gameStateRef)
 		case GameState::MoveLPiece:
 			t_gameStateRef = GameState::View;
 			break;
+		}
+	}
+}
+
+void Game::updateLPiece(Input const* t_input, LPiece * t_player)
+{
+	if (t_input->m_flip)
+	{
+		if (m_gameState == GameState::MoveLPiece)
+		{
+			t_player->flip();
+		}
+	}
+	if (t_input->m_rotate)
+	{
+		if (m_gameState == GameState::MoveLPiece)
+		{
+			t_player->rotate();
 		}
 	}
 }

@@ -186,3 +186,9 @@ TEST(LPiece, LpieceMoveLeft)
 
 	ASSERT_EQ(movedOffset, lpiece.getColOffset());
 }
+
+TEST(LPiece, LPieceRotateOnInput)
+{
+	LPiece testPiece(TileType::PlayerOne, 0, 1);
+
+}

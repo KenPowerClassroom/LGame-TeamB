@@ -21,6 +21,8 @@ private:
 
 	void updateGameState(Input const* t_input, GameState& t_gameStateRef);
 
+	void updateLPiece(Input const* t_input, LPiece * t_player);
+
 	GameState m_gameState;
 
 	sf::RenderWindow m_window;
