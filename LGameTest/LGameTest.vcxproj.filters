@@ -9,6 +9,9 @@
       <Filter>L Piece</Filter>
     </ClCompile>
     <ClCompile Include="Renderer.unittest.cpp" />
+    <ClCompile Include="Input.unittest.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -22,6 +25,9 @@
     </Filter>
     <Filter Include="L Piece">
       <UniqueIdentifier>{ea72c4d7-e298-4459-af92-20b2eed47c2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Input">
+      <UniqueIdentifier>{9e049d30-90ce-4a23-b3f5-ef01ed8b77fe}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
