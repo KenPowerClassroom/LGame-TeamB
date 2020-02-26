@@ -166,6 +166,7 @@
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="LPiece.cpp" />
+    <ClCompile Include="MoveChecker.cpp" />
     <ClCompile Include="Render.cpp" />
     <ClCompile Include="LGame.cpp" />
     <ClCompile Include="SFMLKeyboardInput.cpp" />
@@ -176,6 +177,7 @@
     <ClInclude Include="GameState.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="LPiece.h" />
+    <ClInclude Include="MoveChecker.h" />
     <ClInclude Include="Render.h" />
     <ClInclude Include="SFMLKeyboardInput.h" />
     <ClInclude Include="SFMLRenderer.h" />
