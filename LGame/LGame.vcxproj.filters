@@ -42,6 +42,9 @@
     <ClCompile Include="SFMLKeyboardInput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MoveChecker.cpp">
+		<Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -71,6 +74,9 @@
     <ClInclude Include="GameState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MoveChecker.h">
+		<Filter>Header Files</Filter>
+	</ClInclude>
     <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
