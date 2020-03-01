@@ -19,5 +19,6 @@ public:
 	bool m_continue;
 	bool m_flip;
 	bool m_rotate;
+	bool m_gameClosed;
 };
 

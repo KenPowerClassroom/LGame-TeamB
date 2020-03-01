@@ -6,7 +6,9 @@
 /// @Date 26/02/2020
 /// </summary>
 
-#include "SFMLRenderer.h"
+#include "GameState.h"
+#include "Render.h"
+#include "Input.h"
 #include "Board.h"
 #include "LPiece.h"
 #include "SFMLKeyboardInput.h"
@@ -17,7 +19,7 @@ class Game
 {
 public:
 
-	Game();
+	Game(Input & t_input, Render & t_renderer);
 
 	void start();
 
@@ -31,10 +33,9 @@ private:
 
 	GameState m_gameState;
 
-	sf::RenderWindow m_window;
-	SFMLRenderer m_renderer;
+	Render & m_renderer;
 
-	SFMLKeyboardInput m_input;
+	Input & m_input;
 
 	Board m_board;
 	LPiece m_lPiece;

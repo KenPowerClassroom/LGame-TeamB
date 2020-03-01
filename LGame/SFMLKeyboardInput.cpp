@@ -27,6 +27,7 @@ void SFMLKeyboardInput::update()
 	m_down = false;
 	m_flip = false;
 	m_rotate = false;
+	m_gameClosed = false;
 
 	sf::Event nextEvent;
 
@@ -40,6 +41,7 @@ void SFMLKeyboardInput::update()
 		if (sf::Event::Closed == nextEvent.type)
 		{
 			m_window->close();
+			m_gameClosed = true;
 		}
 		if (sf::Event::KeyPressed == nextEvent.type)
 		{
