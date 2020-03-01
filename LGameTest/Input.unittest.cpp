@@ -1,12 +1,15 @@
 #include "pch.h"
 #include "../LGame/Game.h"
-#include "../LGame/Input.h"
+#include "MockInput.h"
+#include "MockRenderer.h"
 
 TEST(Input, ContinueGameStateTest)
 {
-    Game game; // Create a game object
+    // Create mock classes to satisfy the game Default constucter
+    MockInput input; 
+    MockRenderer renderer;
 
-    SFMLKeyboardInput input; // Create an sfml keyboard input object
+    Game game(input, renderer); // Create a Game object
 
     input.m_continue = true; // Set the continue input to true
     

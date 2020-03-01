@@ -17,5 +17,6 @@ public:
 	bool m_up;
 	bool m_down;
 	bool m_continue;
+	bool m_gameClosed;
 };
 

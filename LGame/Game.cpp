@@ -1,10 +1,11 @@
 #include "Game.h"
 
 /////////////////////////////////////////////////////////////////////////////////////
-Game::Game() :
+Game::Game(Input& t_input, Render& t_renderer) :
 	m_gameState{ GameState::View },
-	m_window{ sf::VideoMode(1100, 620, 32U), "L Game", sf::Style::Default },
 	m_lPiece{ TileType::PlayerOne, 0, 1 },
+	m_input{ t_input },
+	m_renderer{ t_renderer },
 	m_board{ std::array<std::array<TileType, 4>, 4>
 	{ {
 		{ TileType::Coin, TileType::PlayerOne, TileType::PlayerOne, TileType::Empty },
@@ -13,8 +14,6 @@ Game::Game() :
 		{ TileType::Empty, TileType::PlayerTwo, TileType::PlayerTwo, TileType::Coin }
 	} } }
 {
-	m_renderer.setWindowRef(m_window);
-	m_input.setWindowRef(m_window);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -26,7 +25,7 @@ void Game::start()
 /////////////////////////////////////////////////////////////////////////////////////
 void Game::update()
 {
-	while (m_window.isOpen())
+	while (!m_input.m_gameClosed)
 	{
 		m_input.update();
 
